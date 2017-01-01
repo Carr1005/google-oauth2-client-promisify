@@ -34,7 +34,7 @@ function getNewToken(oauth2Client, scopes, tokenFileName) {
 	});
 	console.log('Authorize this app by visiting this url: \n', authUrl);
 	var dialog = readLine.createInterface({
-		input:  process.stdin
+		input: process.stdin
 		,output: process.stdout
 	});
 
