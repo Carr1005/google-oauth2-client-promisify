@@ -80,7 +80,7 @@ exports.createOauth2Client = (clientSecretFile, scopes, tokenFileName) => {
 			var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 			return getToken(oauth2Client, scopes, tokenFileName);
 		})
-		.then( null, params => {
+		.then(null, params => {
 			return getNewToken(params);
 		})
 		.then( oauth2Client => {
