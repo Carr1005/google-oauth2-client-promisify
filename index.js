@@ -17,8 +17,12 @@ function getToken(oauth2Client, scopes, tokenFileName) {
 		fs.readFile(TOKEN_DIR + tokenFileName, (err, token) => {
 			if (err) {
 				console.log('Need to get new token.');
-				getNewToken(oauth2Client, scopes, tokenFileName)
-					.then( oauth2Client => resolve(oauth2Client), reason => reject(reason));
+				var params = {
+					oauth2Client: oauth2Client
+					,scopes: scopes
+					,tokenFileName
+				}
+				reject(params);
 			} else {
 				oauth2Client.credentials = JSON.parse(token);
 				resolve(oauth2Client);
@@ -27,10 +31,10 @@ function getToken(oauth2Client, scopes, tokenFileName) {
 	});
 }
 
-function getNewToken(oauth2Client, scopes, tokenFileName) {
-	var authUrl = oauth2Client.generateAuthUrl({
+function getNewToken(params){
+	var authUrl = params.oauth2Client.generateAuthUrl({
 		access_type: 'offline'
-		,scope: scopes
+		,scope: params.scopes
 	});
 	console.log('Authorize this app by visiting this url: \n', authUrl);
 	var dialog = readLine.createInterface({
@@ -41,12 +45,12 @@ function getNewToken(oauth2Client, scopes, tokenFileName) {
 	return new Promise( (resolve, reject) => {
 		dialog.question('Enter the code from that page here: \n', code => {
 			dialog.close();
-			oauth2Client.getToken(code, (err, token) => {
+			params.oauth2Client.getToken(code, (err, token) => {
 				if (err) reject('Error while trying to retrieve access token => ' + err);
 				else {
-					oauth2Client.credentials = token;
-					storeToken(token, tokenFileName);
-					resolve(oauth2Client);
+					params.oauth2Client.credentials = token;
+					storeToken(token, params.tokenFileName);
+					resolve(params.oauth2Client);
 				}
 			});
 		});
@@ -75,6 +79,9 @@ exports.createOauth2Client = (clientSecretFile, scopes, tokenFileName) => {
 			var auth = new googleAuth();
 			var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 			return getToken(oauth2Client, scopes, tokenFileName);
+		})
+		.then( null, params => {
+			return getNewToken(params);
 		})
 		.then( oauth2Client => {
 			console.log('[Success] => Build OAuth2Client.');
