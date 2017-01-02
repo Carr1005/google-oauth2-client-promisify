@@ -65,7 +65,7 @@ function storeToken(token, tokenFileName) {
 	console.log('Token stored to ' + TOKEN_DIR + tokenFileName);
 }
 
-exports.getOauth2Client = (clientSecretFile, scopes, tokenFileName) => {
+exports.createOauth2Client = (clientSecretFile, scopes, tokenFileName) => {
 	return getClientSecretFile(clientSecretFile)
 		.then( credentials => {
 			console.log('[Success] => Get client secret file from local.');
