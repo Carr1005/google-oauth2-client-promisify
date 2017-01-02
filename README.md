@@ -27,7 +27,6 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 
 oauth2Client.createOauth2Client(CLIENT_SECRET_FILE,SCOPES,TOKEN_FILE)
 	.then( auth => {
-
 		gmail.users.messages.list({
 				auth: auth
 				,userId: 'me'
@@ -39,7 +38,6 @@ oauth2Client.createOauth2Client(CLIENT_SECRET_FILE,SCOPES,TOKEN_FILE)
 				else
 					console.log(response.messages);
 		});
-
 	})
 	.catch( err => {
 		console.log(err);
