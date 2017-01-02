@@ -29,20 +29,20 @@ oauth2Client.createOauth2Client(CLIENT_SECRET_FILE,SCOPES,TOKEN_FILE)
 	.then( auth => {
 
 		gmail.users.messages.list({
-			auth: auth
-			,userId: 'me'
-			,maxResults: '500'
-		}, (err, response) => {
+				auth: auth
+				,userId: 'me'
+				,maxResults: '500'
+			}, (err, response) => {
 
-			if (err) 
-				throw err;
-			else 
-				console.log(response.messages);
+				if (err) 
+					throw err;
+				else
+					console.log(response.messages);
 		});
-		
+
 	})
 	.catch( err => {
 		console.log(err);
-	})
+	});
 
 ```
