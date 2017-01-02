@@ -32,7 +32,6 @@ oauth2Client.createOauth2Client(CLIENT_SECRET_FILE,SCOPES,TOKEN_FILE)
 				,userId: 'me'
 				,maxResults: '500'
 			}, (err, response) => {
-
 				if (err) 
 					throw err;
 				else
