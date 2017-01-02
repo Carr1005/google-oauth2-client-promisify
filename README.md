@@ -8,6 +8,7 @@ npm install google-oauth2-client-promisify
 ## How to
 1. Make sure that client secrets (json file) was downloaded and moved into your working directory.
 2. Install the **googleapis** module that allow you to deal with google api.
+
 ```npm install googleapis --save```
 
 ###exaple
