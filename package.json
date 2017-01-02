@@ -1,7 +1,7 @@
 {
   "name": "google-oauth2-client-promisify",
   "version": "1.0.7",
-  "description": "",
+  "description": "Redesign the code that create OAuth2 client into promise chain and then wrap it as module, return promise with credentials which is thenable.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
