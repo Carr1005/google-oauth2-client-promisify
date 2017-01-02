@@ -15,9 +15,10 @@ npm install google-oauth2-client-promisify
 var oauth2Client = require('google-oauth2-client-promisify');
 
 /**
-*SCOPES: Decide what kind of permission would be authorized. More details in https://developers.google.com/gmail/api/auth/scopes
-*CLIENT_SECRET_FILE: Path of your client secret file.
-*TOKEN_FILE: Just give a name you like for the json file which store token.  
+* SCOPES: Decide what kind of permission would be authorized. 
+* More details in https://developers.google.com/gmail/api/auth/scopes
+* CLIENT_SECRET_FILE: Path of your client secret file.
+* TOKEN_FILE: Just give a name you like for the json file which store token.
 */
 
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
