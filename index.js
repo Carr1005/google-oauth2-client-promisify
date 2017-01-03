@@ -20,7 +20,7 @@ function getToken(oauth2Client, scopes, tokenFileName) {
 				var params = {
 					oauth2Client: oauth2Client
 					,scopes: scopes
-					,tokenFileName
+					,tokenFileName: tokenFileName
 				}
 				reject(params);
 			} else {
