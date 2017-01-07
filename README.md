@@ -14,6 +14,8 @@ npm install google-oauth2-client-promisify
 
 ```js
 var oauth2Client = require('google-oauth2-client-promisify');
+var google = require('googleapis');
+var gmail = google.gmail('v1');
 
 /**
 * CLIENT_SECRET_FILE: Path of your client secret file.
