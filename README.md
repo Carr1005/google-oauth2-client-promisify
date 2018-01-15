@@ -19,8 +19,8 @@ var gmail = google.gmail('v1');
 
 /**
 * CLIENT_SECRET_FILE: Path of your client secret file.
-* TOKEN_FILE: Just give a name you like for the json file which store token.
-* SCOPES: Decide what kind of permission would be authorized. 
+* TOKEN_FILE: Give a name you like for the json file which stores token.
+* SCOPES: Decides what kind of permissions want to be authorized. 
 * More details in -> https://developers.google.com/gmail/api/auth/scopes
 */
 
