@@ -1,5 +1,5 @@
 # google-oauth2-client-promisify
-Redesign the Node.js code in [document on google developers](https://developers.google.com/gmail/api/quickstart/nodejs) that describe the process for creating OAuth2 client and getting credentials. Wrap it as a tiny module and hope to be a good starting point for anyone gonna handle Google APIs in futher with promise-style.
+Reform the Node.js code in [document on google developers](https://developers.google.com/gmail/api/quickstart/nodejs) that describes the process for creating OAuth2 client and getting credentials. Wrap it as a tiny module and hope to be a good starting point for anyone gonna handle Google APIs in futher with promise-style.
 
 ## Installation
 ```
